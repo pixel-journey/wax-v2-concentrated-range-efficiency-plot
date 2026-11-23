@@ -9,4 +9,9 @@ describe("in-range share", () => {
     expect(inRangeBps(0, 4)).toEqual({ bps: 0 });
     expect(() => inRangeBps(5, 4)).toThrow(/window/);
   });
+
+  it("refuses window 0 and over one year", () => {
+    expect(() => inRangeBps(0, 0)).toThrow(/windowSec/);
+    expect(() => inRangeBps(0, 31_536_001)).toThrow(/windowSec/);
+  });
 });
