@@ -8,7 +8,8 @@
 | `inRangeBps(1, 3)` | **3333** (not 3334) |
 | `inRangeBps(4, 4)` | **10000** |
 | `inRangeBps(0, 4)` | **0** |
-| `inRangeBps(5, 4)` | throws (inside cannot exceed window) |
+| `inRangeBps(5, 4)` | throws |
+| window 0 or > 31536000 | throws |
 
 Formula: `floor(inRangeSec * 10000 / windowSec)`.
 
